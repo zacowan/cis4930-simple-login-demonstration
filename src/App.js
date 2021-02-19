@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Register from "./Register";
 import Login from "./Login";
 import Hello from "./Hello";
@@ -42,13 +42,7 @@ function App() {
             <Register />
           </Route>
           <Route path="/">
-            {user === null ? (
-              <Redirect to="/login" />
-            ) : (
-              <Hello
-                user={{ username: user, password: localStorage.getItem(user) }}
-              />
-            )}
+            {user === null ? <Redirect to="/login" /> : <Hello />}
           </Route>
         </Switch>
       </div>

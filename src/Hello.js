@@ -1,9 +1,9 @@
 import React from "react";
 
-function HelloPage(props) {
+function HelloPage() {
   return (
     <div>
-        <h>Hello {props.user.username}</h>
+      <h>Hello {localStorage.getItem("currentUser")}</h>
     </div>
   );
 }
