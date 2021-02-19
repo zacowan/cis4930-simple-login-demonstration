@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Box, Button, TextField } from "@material-ui/core";
 
-const LoginPage = () => {
+const LoginPage = ({ setUser }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
@@ -24,6 +24,7 @@ const LoginPage = () => {
     e.preventDefault();
     if (errorChecking().length === 0) {
       localStorage.setItem("currentUser", username);
+      setUser(username);
       history.push("/");
     }
   };
