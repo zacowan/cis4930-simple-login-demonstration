@@ -30,10 +30,10 @@ const LoginPage = () => {
 
   return (
     <Box>
-      {errors.map((e) => {
-        <p>{e}</p>;
-      })}
       <h1>Login</h1>
+      {errors.map((e) => (
+        <p>{e}</p>
+      ))}
       <form onSubmit={handleSubmit}>
         <TextField
           value={username}

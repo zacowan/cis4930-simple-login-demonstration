@@ -30,9 +30,9 @@ const RegisterPage = () => {
 
   return (
     <Box>
-      {errors.map((e) => {
-        <p>{e}</p>;
-      })}
+      {errors.map((e) => (
+        <p>{e}</p>
+      ))}
       <h1>Register</h1>
       <form onSubmit={handleSubmit}>
         <TextField
