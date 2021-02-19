@@ -1,0 +1,6 @@
+Group members: Juan Suhr, Zach Cowan, Matteo Saltini
+
+Our application is purely client-side, storing all user data in plain text in the browser’s local storage for persistence.
+We use react and store the current user in one local storage variable, with the user’s username serving as a key for retrieving the password through local storage.
+
+To run the application simply run ‘npm install’ followed by ‘npm start’, as you would any React application.
