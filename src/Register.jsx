@@ -6,7 +6,7 @@ const RegisterPage = () => {
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
 
-  function errorChecking(username, password) {
+  function errorChecking() {
     const newErrors = []
     if (username.length < 3) {
       newErrors.push('Username too short! 3 chars minimum');
@@ -15,17 +15,21 @@ const RegisterPage = () => {
       newErrors.push('Password too short! 5 chars minimum')
     }
     setErrors(newErrors);
+    return newErrors;
   }
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    console.log(username);
-    console.log(password);
+    if(errorChecking().length === 0) {
+      localStorage.setItem(username, password);
+    }
   };
 
   return (
     <Box>
+      {errors.map(e => {
+        <p>{e}</p>
+      })}
       <h1>Register</h1>
       <form onSubmit={handleSubmit}>
         <TextField
