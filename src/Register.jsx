@@ -1,18 +1,20 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import { Box, Button, TextField } from "@material-ui/core";
 
 const RegisterPage = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
+  const history = useHistory();
 
   function errorChecking() {
-    const newErrors = []
+    const newErrors = [];
     if (username.length < 3) {
-      newErrors.push('Username too short! 3 chars minimum');
+      newErrors.push("Username too short! 3 chars minimum");
     }
     if (password.length < 5) {
-      newErrors.push('Password too short! 5 chars minimum')
+      newErrors.push("Password too short! 5 chars minimum");
     }
     setErrors(newErrors);
     return newErrors;
@@ -20,15 +22,16 @@ const RegisterPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if(errorChecking().length === 0) {
+    if (errorChecking().length === 0) {
       localStorage.setItem(username, password);
+      history.push("/login");
     }
   };
 
   return (
     <Box>
-      {errors.map(e => {
-        <p>{e}</p>
+      {errors.map((e) => {
+        <p>{e}</p>;
       })}
       <h1>Register</h1>
       <form onSubmit={handleSubmit}>
